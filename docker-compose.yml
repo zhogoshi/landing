@@ -6,8 +6,6 @@ services:
         HUGEICONS_NPM_TOKEN: ${HUGEICONS_NPM_TOKEN:-}
         HOGOSHI_NPM_TOKEN: ${HOGOSHI_NPM_TOKEN:-}
     environment:
-      API_URL: ${API_URL:-http://127.0.0.1:4000}
-      STUDIO_PATH: ${STUDIO_PATH:-studio}
       SITE_URL: ${SITE_URL:-http://localhost:3000}
     ports:
       - "${PORT:-3000}:3000"

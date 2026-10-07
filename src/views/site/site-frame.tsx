@@ -13,12 +13,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     const apply = () => setNarrow(window.scrollY > 24);
     apply();
     window.addEventListener("scroll", apply, { passive: true });
-    const id = setInterval(() => void fetch("/api/presence", { method: "POST" }), 20_000);
-    void fetch("/api/presence", { method: "POST" });
-    return () => {
-      window.removeEventListener("scroll", apply);
-      clearInterval(id);
-    };
+    return () => window.removeEventListener("scroll", apply);
   }, []);
 
   return (
