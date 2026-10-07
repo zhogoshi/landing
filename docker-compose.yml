@@ -10,4 +10,4 @@ services:
       STUDIO_PATH: ${STUDIO_PATH:-studio}
       SITE_URL: ${SITE_URL:-http://localhost:3000}
     ports:
-      - "3000:3000"
+      - "${PORT:-3000}:3000"
