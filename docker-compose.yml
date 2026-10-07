@@ -2,10 +2,9 @@ services:
   app:
     build:
       context: .
-      additional_contexts:
-        hogoshi_ui: ../ui
       args:
         HUGEICONS_NPM_TOKEN: ${HUGEICONS_NPM_TOKEN}
+        HOGOSHI_NPM_TOKEN: ${HOGOSHI_NPM_TOKEN}
     environment:
       API_URL: http://core:4000
       STUDIO_PATH: ${STUDIO_PATH:-studio}
