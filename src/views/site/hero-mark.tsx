@@ -271,6 +271,7 @@ function MarkFallback() {
 export function HeroMark() {
   const ref = useRef<HTMLCanvasElement>(null);
   const [flat, setFlat] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const canvas = ref.current;
@@ -280,7 +281,7 @@ export function HeroMark() {
     const gl = canvas.getContext("webgl", {
       antialias: true,
       alpha: true,
-      premultipliedAlpha: false,
+      premultipliedAlpha: true,
       preserveDrawingBuffer: true,
       powerPreference: "high-performance",
     });
@@ -288,6 +289,8 @@ export function HeroMark() {
       fail();
       return;
     }
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
     const compile = (type: number, source: string) => {
       const shader = gl.createShader(type);
       if (!shader) return null;
@@ -366,8 +369,9 @@ export function HeroMark() {
       last = now;
       frame = requestAnimationFrame(loop);
     };
-    if (reduced) draw();
-    else frame = requestAnimationFrame(loop);
+    draw();
+    setReady(true);
+    if (!reduced) frame = requestAnimationFrame(loop);
     const mode = new MutationObserver(() => {
       color.current = readFg();
     });
@@ -386,5 +390,11 @@ export function HeroMark() {
 
   if (flat) return <MarkFallback />;
 
-  return <canvas ref={ref} className={frameClass} aria-label="hogoshi mark" />;
+  return (
+    <canvas
+      ref={ref}
+      className={`${frameClass} bg-transparent motion-reduce:transition-none ${ready ? "opacity-100" : "opacity-0"} transition-opacity duration-[var(--motion-duration)] ease-[var(--motion-ease)]`}
+      aria-label="hogoshi mark"
+    />
+  );
 }
