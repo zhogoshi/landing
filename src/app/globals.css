@@ -1,0 +1,98 @@
+@import "@hogoshi/ui/src/styles.css";
+@source ".";
+@source "../../node_modules/@hogoshi/ui/src";
+
+@media (pointer: fine) {
+  html.hogoshi-cursor,
+  html.hogoshi-cursor * {
+    cursor: none !important;
+  }
+}
+
+@keyframes hogoshi-spark {
+  0% { transform: translateY(10vh) scale(0.6); opacity: 0; }
+  20% { opacity: 0.9; }
+  100% { transform: translateY(-80vh) scale(1); opacity: 0; }
+}
+
+.hogoshi-spark {
+  animation: hogoshi-spark linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hogoshi-spark { animation: none; opacity: 0.4; }
+}
+
+@keyframes hogoshi-shimmer {
+  from { background-position: 120% 0; }
+  to { background-position: -20% 0; }
+}
+
+.hogoshi-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    color-mix(in oklch, var(--fg) 28%, transparent) 32%,
+    var(--fg) 50%,
+    color-mix(in oklch, var(--fg) 28%, transparent) 68%
+  );
+  background-size: 220% 100%;
+  background-clip: text;
+  color: transparent;
+  animation: hogoshi-shimmer 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hogoshi-shimmer { animation: none; }
+}
+
+html[data-motion="reduced"] .hogoshi-shimmer,
+html[data-motion="off"] .hogoshi-shimmer {
+  animation: none;
+}
+
+@keyframes hogoshi-word-in {
+  from { opacity: 0; filter: blur(12px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+@keyframes hogoshi-word-out {
+  from { opacity: 1; filter: blur(0); }
+  to { opacity: 0; filter: blur(12px); }
+}
+
+.hogoshi-word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  overflow: visible;
+  padding-right: 0.28em;
+  white-space: nowrap;
+  font-weight: 200;
+  font-style: italic;
+  background-image: linear-gradient(90deg, var(--fg), var(--fg-muted));
+  background-clip: text;
+  color: transparent;
+}
+
+.hogoshi-word-in,
+.hogoshi-word-out {
+  animation-duration: 900ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.hogoshi-word-in { animation-name: hogoshi-word-in; }
+.hogoshi-word-out { animation-name: hogoshi-word-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hogoshi-word-in,
+  .hogoshi-word-out { animation: none; }
+}
+
+html[data-motion="reduced"] .hogoshi-word-in,
+html[data-motion="reduced"] .hogoshi-word-out,
+html[data-motion="off"] .hogoshi-word-in,
+html[data-motion="off"] .hogoshi-word-out {
+  animation: none;
+}

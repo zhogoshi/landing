@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: .
+      additional_contexts:
+        hogoshi_ui: ../ui
+      args:
+        HUGEICONS_NPM_TOKEN: ${HUGEICONS_NPM_TOKEN}
+    environment:
+      API_URL: http://core:4000
+      STUDIO_PATH: ${STUDIO_PATH:-studio}
+      SITE_URL: ${SITE_URL:-http://hogoshi.localhost:8080}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.landing.rule=Host(`hogoshi.localhost`)
+      - traefik.http.routers.landing.entrypoints=web
+      - traefik.http.routers.landing.priority=1
+      - traefik.http.services.landing.loadbalancer.server.port=3000
+    networks:
+      - hogoshi
+networks:
+  hogoshi:
+    name: hogoshi
+    external: true

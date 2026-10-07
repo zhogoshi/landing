@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cupify",
+    "name": "Cupify",
+    "description": "A round trading desk. Orders, risk, and a mark you can read at favicon size.",
+    "href": "https://cupify.hogoshi.dev",
+    "logo": "cupify.svg",
+    "status": "live"
+  },
+  {
+    "id": "obfuscator",
+    "name": "Obfuscator",
+    "description": "Rewrites DOM, styles, and TypeScript until the source no longer introduces itself.",
+    "href": "https://obfuscator.hogoshi.dev",
+    "logo": "obfuscator.svg",
+    "status": "soon"
+  },
+  {
+    "id": "nullset",
+    "name": "Nullset",
+    "description": "A private index of the things Yan Nulov ships under another name.",
+    "href": "https://nullset.hogoshi.dev",
+    "logo": "nullset.svg",
+    "status": "live"
+  },
+  {
+    "id": "field",
+    "name": "Field",
+    "description": "Notes, drafts, and the long pieces. One column, no inbox.",
+    "href": "https://hogoshi.dev/writing",
+    "logo": "field.svg",
+    "status": "live"
+  },
+  {
+    "id": "glassline",
+    "name": "Glassline",
+    "description": "A thin studio for looking at a product before it has a name.",
+    "href": "https://glassline.hogoshi.dev",
+    "logo": "glassline.svg",
+    "status": "soon"
+  }
+]
