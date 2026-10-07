@@ -1,22 +1,27 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Cursor() {
   const dot = useRef<HTMLDivElement>(null);
   const ring = useRef<HTMLDivElement>(null);
   const mouse = useRef({ x: 0, y: 0 });
   const lag = useRef({ x: 0, y: 0 });
+  const armed = useRef(false);
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!fine) return;
     document.documentElement.classList.add("hogoshi-cursor");
-    mouse.current = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    lag.current = { ...mouse.current };
     const move = (event: MouseEvent) => {
       mouse.current = { x: event.clientX, y: event.clientY };
+      if (!armed.current) {
+        armed.current = true;
+        lag.current = { ...mouse.current };
+        setShown(true);
+      }
       if (dot.current) dot.current.style.transform = `translate3d(${event.clientX - 1}px, ${event.clientY - 1}px, 0)`;
     };
     let frame = 0;
@@ -45,8 +50,14 @@ export function Cursor() {
 
   return (
     <>
-      <div ref={ring} className="pointer-events-none fixed top-0 left-0 z-[99999] hidden size-6 rounded-full border border-white mix-blend-difference [@media(pointer:fine)]:block" />
-      <div ref={dot} className="pointer-events-none fixed top-0 left-0 z-[99999] hidden size-0.5 rounded-full bg-white mix-blend-difference [@media(pointer:fine)]:block" />
+      <div
+        ref={ring}
+        className={`pointer-events-none fixed top-0 left-0 z-[2147483647] hidden size-6 rounded-full border border-white mix-blend-difference [@media(pointer:fine)]:block ${shown ? "" : "opacity-0"}`}
+      />
+      <div
+        ref={dot}
+        className={`pointer-events-none fixed top-0 left-0 z-[2147483647] hidden size-0.5 rounded-full bg-white mix-blend-difference [@media(pointer:fine)]:block ${shown ? "" : "opacity-0"}`}
+      />
     </>
   );
 }

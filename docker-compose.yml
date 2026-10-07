@@ -6,6 +6,7 @@ services:
         HUGEICONS_NPM_TOKEN: ${HUGEICONS_NPM_TOKEN:-}
         HOGOSHI_NPM_TOKEN: ${HOGOSHI_NPM_TOKEN:-}
     environment:
+      PORT: ${PORT:-3000}
       SITE_URL: ${SITE_URL:-http://localhost:3000}
     ports:
-      - "${PORT:-3000}:3000"
+      - "${PORT:-3000}:${PORT:-3000}"

@@ -2,9 +2,9 @@
   "name": "landing",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
+    "dev": "next dev --webpack --port ${PORT:-3000}",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port ${PORT:-3000}",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "prepare": "husky || true"

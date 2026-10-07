@@ -9,7 +9,7 @@ const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: { default: "hogoshi", template: "%s · hogoshi" },
+  title: { absolute: "hogoshi - fullstack developer" },
   description: "Vadim Kusov. Software, notes, and products.",
   applicationName: "hogoshi",
   appleWebApp: { capable: true, title: "hogoshi", statusBarStyle: "black-translucent" },
