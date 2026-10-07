@@ -27,7 +27,7 @@ Dev server: http://localhost:3000
 PORT=3010 docker compose up --build
 ```
 
-`PORT` is the host port. The app inside the container still listens on `3000`. After `next build`, the image runs `obfuscate-hogoshi .next --profile=balanced`. Local `pnpm dev` stays readable.
+`PORT` is the host port. The app inside the container still listens on `3000`. After `next build`, the image runs `obfuscate-hogoshi .next`. Local `pnpm dev` stays readable.
 
 Dokploy builds this Compose file by itself. Set:
 
