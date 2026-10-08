@@ -25,8 +25,8 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         <div
           className={`pointer-events-auto flex items-center transition-[width,height,margin,border-radius,background-color,border-color,box-shadow] duration-500 ease-[var(--motion-ease)] motion-reduce:transition-none ${
             narrow
-              ? "border-border bg-bg-elevated mt-[max(0.75rem,var(--safe-top))] h-12 w-[min(40rem,calc(100%-max(1.5rem,var(--safe-left))-max(1.5rem,var(--safe-right))))] rounded-full border px-2 shadow-[var(--shadow-md)]"
-              : "mt-[var(--safe-top)] h-14 w-full border border-transparent bg-transparent px-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))]"
+              ? "border-border bg-bg-elevated mt-[calc(var(--safe-top)+0.75rem)] h-12 w-[min(40rem,calc(100%-max(1.5rem,var(--safe-left))-max(1.5rem,var(--safe-right))))] rounded-full border px-2 shadow-[var(--shadow-md)]"
+              : "mt-[calc(var(--safe-top)+0.625rem)] h-14 w-full border border-transparent bg-transparent px-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))]"
           }`}
         >
           <Navbar className="relative h-full w-full bg-transparent px-1 shadow-none backdrop-blur-none">

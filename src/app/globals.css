@@ -1,11 +1,11 @@
 @import "@hogoshi/ui/src/styles.css";
 
 [data-sonner-toaster] {
-  --offset-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px)) !important;
-  --offset-right: max(1.5rem, env(safe-area-inset-right, 0px)) !important;
-  --mobile-offset-bottom: calc(4.25rem + max(0.5rem, env(safe-area-inset-bottom, 0px))) !important;
-  --mobile-offset-left: max(1rem, env(safe-area-inset-left, 0px)) !important;
-  --mobile-offset-right: max(1rem, env(safe-area-inset-right, 0px)) !important;
+  --offset-bottom: 1.5rem !important;
+  --offset-right: 1.5rem !important;
+  --mobile-offset-bottom: 5rem !important;
+  --mobile-offset-left: 1rem !important;
+  --mobile-offset-right: 1rem !important;
 }
 @source ".";
 @source "../../node_modules/@hogoshi/ui/src";
