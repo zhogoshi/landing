@@ -1,5 +1,12 @@
 @import "@hogoshi/ui/src/styles.css";
 
+html,
+body {
+  height: 100%;
+  min-height: 100lvh;
+  min-height: -webkit-fill-available;
+}
+
 [data-sonner-toaster] {
   --offset-bottom: 1.5rem !important;
   --offset-right: 1.5rem !important;
