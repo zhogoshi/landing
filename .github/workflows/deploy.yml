@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Redeploy landing
+        env:
+          DOKPLOY_WEBHOOK_URL: https://dokploy.hogoshi.dev/api/deploy/compose/fgz5S0GU5g9PLy7QkbsEG
+        run: |
+          jq -n \
+            --arg ref "${{ github.ref }}" \
+            --arg sha "${{ github.sha }}" \
+            --arg msg "${{ github.event.head_commit.message }}" \
+            --argjson commits "$(jq -c '[.commits[]? | {added, removed, modified}]' "$GITHUB_EVENT_PATH")" \
+            '{ref: $ref, head_commit: {id: $sha, message: $msg}, commits: $commits}' \
+          | curl -fsS -X POST "$DOKPLOY_WEBHOOK_URL" \
+              -H "Content-Type: application/json" \
+              -H "X-GitHub-Event: push" \
+              --data-binary @-
