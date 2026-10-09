@@ -35,7 +35,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hogoshi-spark { animation: none; opacity: 0.4; }
+  html.hogoshi-site .hogoshi-spark {
+    animation: hogoshi-spark linear infinite !important;
+    opacity: 1 !important;
+  }
 }
 
 @keyframes hogoshi-shimmer {
@@ -57,12 +60,16 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hogoshi-shimmer { animation: none; }
-}
+  html.hogoshi-site,
+  html.hogoshi-site *,
+  html.hogoshi-site *::before,
+  html.hogoshi-site *::after {
+    transition-duration: 500ms !important;
+  }
 
-html[data-motion="reduced"] .hogoshi-shimmer,
-html[data-motion="off"] .hogoshi-shimmer {
-  animation: none;
+  html.hogoshi-site .hogoshi-shimmer {
+    animation: hogoshi-shimmer 2.8s ease-in-out infinite !important;
+  }
 }
 
 @keyframes hogoshi-word-in {
@@ -101,13 +108,16 @@ html[data-motion="off"] .hogoshi-shimmer {
 .hogoshi-word-out { animation-name: hogoshi-word-out; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hogoshi-word-in,
-  .hogoshi-word-out { animation: none; }
-}
+  html.hogoshi-site .hogoshi-word-in {
+    animation: hogoshi-word-in 900ms cubic-bezier(0.4, 0, 0.2, 1) both !important;
+  }
 
-html[data-motion="reduced"] .hogoshi-word-in,
-html[data-motion="reduced"] .hogoshi-word-out,
-html[data-motion="off"] .hogoshi-word-in,
-html[data-motion="off"] .hogoshi-word-out {
-  animation: none;
+  html.hogoshi-site .hogoshi-word-out {
+    animation: hogoshi-word-out 900ms cubic-bezier(0.4, 0, 0.2, 1) both !important;
+  }
+
+  html.hogoshi-site .motion-reduce\:transition-none {
+    transition-property: width, height, margin, border-radius, background-color, border-color, box-shadow, opacity !important;
+    transition-duration: 500ms !important;
+  }
 }

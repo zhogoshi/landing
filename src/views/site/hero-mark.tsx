@@ -277,7 +277,6 @@ export function HeroMark() {
     const canvas = ref.current;
     if (!canvas) return;
     const fail = () => setFlat(true);
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const gl = canvas.getContext("webgl", {
       antialias: true,
       alpha: true,
@@ -346,8 +345,8 @@ export function HeroMark() {
     let elapsed = 0;
     let last = 0;
     const draw = (tint = color.current) => {
-      const angle = reduced ? -0.6 : elapsed / 2800;
-      const bob = reduced ? 0 : Math.sin(elapsed / 900) * 0.08;
+      const angle = elapsed / 2800;
+      const bob = Math.sin(elapsed / 900) * 0.08;
       const placed = model(angle, bob);
       gl.uniform3fv(colorLoc, tint);
       gl.uniformMatrix4fv(modelLoc, false, placed);
@@ -371,7 +370,7 @@ export function HeroMark() {
     };
     draw();
     setReady(true);
-    if (!reduced) frame = requestAnimationFrame(loop);
+    frame = requestAnimationFrame(loop);
     const mode = new MutationObserver(() => {
       color.current = readFg();
     });
@@ -393,7 +392,7 @@ export function HeroMark() {
   return (
     <canvas
       ref={ref}
-      className={`${frameClass} bg-transparent motion-reduce:transition-none ${ready ? "opacity-100" : "opacity-0"} transition-opacity duration-[var(--motion-duration)] ease-[var(--motion-ease)]`}
+      className={`${frameClass} bg-transparent ${ready ? "opacity-100" : "opacity-0"} transition-opacity duration-[var(--motion-duration)] ease-[var(--motion-ease)]`}
       aria-label="hogoshi mark"
     />
   );

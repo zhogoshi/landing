@@ -35,7 +35,6 @@ export function HeroTitle() {
   }, []);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let timer = 0;
     const cycle = () => {
       if (document.documentElement.hasAttribute("data-theme-switching")) {
@@ -60,7 +59,7 @@ export function HeroTitle() {
       <span ref={probe} aria-hidden className="pointer-events-none absolute font-extralight italic opacity-0" />
       I&apos;m
       <span
-        className="relative ml-[0.28em] inline-block overflow-visible pr-[0.28em] text-left align-baseline transition-[width] duration-[900ms] ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none"
+        className="relative ml-[0.28em] inline-block overflow-visible pr-[0.28em] text-left align-baseline transition-[width] duration-[900ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
         style={{ width: width ? `${width}px` : undefined }}
       >
         <span className="invisible font-extralight italic" aria-hidden>

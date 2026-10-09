@@ -12,7 +12,6 @@ export function Cursor() {
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!fine) return;
     document.documentElement.classList.add("hogoshi-cursor");
     const move = (event: MouseEvent) => {
@@ -39,8 +38,7 @@ export function Cursor() {
       frame = requestAnimationFrame(loop);
     };
     window.addEventListener("mousemove", move);
-    if (!reduce) frame = requestAnimationFrame(loop);
-    else if (ring.current) ring.current.style.transform = `translate3d(${mouse.current.x - 12}px, ${mouse.current.y - 12}px, 0)`;
+    frame = requestAnimationFrame(loop);
     return () => {
       document.documentElement.classList.remove("hogoshi-cursor");
       window.removeEventListener("mousemove", move);
