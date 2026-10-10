@@ -25,10 +25,6 @@ export function Cursor() {
     };
     let frame = 0;
     const loop = () => {
-      if (document.documentElement.hasAttribute("data-theme-switching")) {
-        frame = requestAnimationFrame(loop);
-        return;
-      }
       const grow = document.querySelector("[data-cursor='grow']:hover") ? 1.8 : 1;
       lag.current.x += (mouse.current.x - lag.current.x) * 0.12;
       lag.current.y += (mouse.current.y - lag.current.y) * 0.12;

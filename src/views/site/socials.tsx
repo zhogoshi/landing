@@ -6,7 +6,7 @@ import { Icon, Tooltip, TooltipContent, TooltipTrigger, type AppIcon } from "@ho
 const links: { name: string; tip: string; href?: string; copy?: string; icon?: AppIcon; mark?: "steam" }[] = [
   { name: "Telegram", tip: "Telegram", href: "https://t.me/hogoshi", icon: TelegramIcon },
   { name: "Steam", tip: "Steam", href: "https://steamcommunity.com/id/hogoshi", mark: "steam" },
-  { name: "Discord", tip: "hogoshi", copy: "hogoshi", icon: DiscordIcon },
+  { name: "Discord", tip: "Discord", copy: "hogoshi", icon: DiscordIcon },
   { name: "GitHub", tip: "GitHub", href: "https://github.com/zhogoshi", icon: GithubIcon },
   { name: "LinkedIn", tip: "LinkedIn", href: "https://www.linkedin.com/in/hogoshi", icon: Linkedin01Icon },
   { name: "VK", tip: "VK", href: "https://vk.com/hogoshi", icon: VkIcon },
