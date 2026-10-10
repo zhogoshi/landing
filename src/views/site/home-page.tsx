@@ -1,5 +1,6 @@
 import { HeroMark } from "./hero-mark";
 import { HeroTitle } from "./hero-title";
+import { Socials } from "./socials";
 
 export function HomePage() {
   return (
@@ -9,9 +10,7 @@ export function HomePage() {
         <HeroTitle />
       </div>
       <HeroMark />
-      <p className="hogoshi-shimmer fixed bottom-[max(0.75rem,var(--safe-bottom))] left-1/2 -translate-x-1/2 text-sm font-medium">
-        Something huge is next
-      </p>
+      <Socials />
     </section>
   );
 }
