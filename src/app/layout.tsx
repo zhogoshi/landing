@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
-      <body className="bg-bg text-fg min-h-svh antialiased">
+      <body className="bg-bg text-fg min-h-dvh antialiased">
         <Providers>
           {children}
           <BootScreen />

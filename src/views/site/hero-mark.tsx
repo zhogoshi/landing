@@ -258,7 +258,7 @@ function model(angle: number, bob: number) {
   return multiply(place, multiply(pitch, yaw));
 }
 
-const frameClass = "mx-auto h-[min(92vw,34rem)] w-[min(92vw,34rem)] md:h-[min(46vw,40rem)] md:w-full";
+const frameClass = "mx-auto h-[min(70vw,34rem,calc(100dvh-var(--safe-top)-var(--safe-bottom)-12rem))] w-[min(70vw,34rem,calc(100dvh-var(--safe-top)-var(--safe-bottom)-12rem))] md:h-[min(46vw,40rem,calc(100dvh-var(--safe-top)-var(--safe-bottom)-8rem))] md:w-full md:max-w-[min(40rem,calc(100dvh-var(--safe-top)-var(--safe-bottom)-8rem))]";
 
 function MarkFallback() {
   return (

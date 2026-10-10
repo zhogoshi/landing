@@ -10,8 +10,8 @@
     "prepare": "husky || true"
   },
   "dependencies": {
-    "@hogoshi/tokens": "^0.1.1",
-    "@hogoshi/ui": "^0.1.5",
+    "@hogoshi/tokens": "^0.1.2",
+    "@hogoshi/ui": "^0.1.6",
     "@hookform/resolvers": "^5.2.2",
     "@hugeicons-pro/core-solid-rounded": "^4.2.2",
     "@hugeicons-pro/core-stroke-rounded": "^4.2.2",

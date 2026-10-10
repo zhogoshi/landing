@@ -3,13 +3,13 @@ import { HeroTitle } from "./hero-title";
 
 export function HomePage() {
   return (
-    <section className="mx-auto flex min-h-svh w-full max-w-6xl flex-col items-center justify-center gap-6 px-6 pt-[calc(6.5rem+var(--safe-top))] pb-16 text-center md:grid md:grid-cols-2 md:items-center md:gap-8 md:px-10 md:text-left">
+    <section className="mx-auto flex h-dvh max-h-dvh w-full max-w-6xl flex-col items-center justify-center gap-4 overflow-hidden pt-[calc(4.5rem+var(--safe-top))] pr-[max(1.5rem,var(--safe-right))] pb-[max(2.5rem,var(--safe-bottom))] pl-[max(1.5rem,var(--safe-left))] text-center md:grid md:grid-cols-2 md:items-center md:gap-6 md:pr-[max(2.5rem,var(--safe-right))] md:pl-[max(2.5rem,var(--safe-left))] md:text-left">
       <div className="grid justify-items-center gap-4 md:justify-items-start">
         <p className="text-fg-subtle text-[11px] tracking-[0.18em] uppercase">hogoshi</p>
         <HeroTitle />
       </div>
       <HeroMark />
-      <p className="hogoshi-shimmer fixed bottom-3 left-1/2 -translate-x-1/2 text-sm font-medium">
+      <p className="hogoshi-shimmer fixed bottom-[max(0.75rem,var(--safe-bottom))] left-1/2 -translate-x-1/2 text-sm font-medium">
         Something huge is next
       </p>
     </section>
