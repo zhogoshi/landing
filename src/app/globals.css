@@ -97,6 +97,15 @@ html[data-mode="light"] .hogoshi-social::before {
   );
 }
 
+html[data-theme-switching] .hogoshi-social::before,
+.hogoshi-theme-layer .hogoshi-social::before {
+  animation-name: hogoshi-shimmer !important;
+  animation-duration: 2.8s !important;
+  animation-timing-function: ease-in-out !important;
+  animation-iteration-count: infinite !important;
+  animation-play-state: running !important;
+}
+
 .hogoshi-socials > .hogoshi-social:nth-child(2)::before { animation-delay: -0.45s; }
 .hogoshi-socials > .hogoshi-social:nth-child(3)::before { animation-delay: -0.9s; }
 .hogoshi-socials > .hogoshi-social:nth-child(4)::before { animation-delay: -1.35s; }

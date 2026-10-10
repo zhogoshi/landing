@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect } from "react";
 import { DiscordIcon, GithubIcon, Linkedin01Icon, TelegramIcon, VkIcon } from "@hugeicons-pro/core-solid-rounded";
-import { Icon, Tooltip, TooltipContent, TooltipTrigger, type AppIcon } from "@hogoshi/ui";
+import { Icon, Tooltip, TooltipContent, TooltipTrigger, toast, type AppIcon } from "@hogoshi/ui";
 
 const links: { name: string; tip: string; href?: string; copy?: string; icon?: AppIcon; mark?: "steam" }[] = [
   { name: "Telegram", tip: "Telegram", href: "https://t.me/hogoshi", icon: TelegramIcon },
@@ -12,7 +13,25 @@ const links: { name: string; tip: string; href?: string; copy?: string; icon?: A
   { name: "VK", tip: "VK", href: "https://vk.com/hogoshi", icon: VkIcon },
 ];
 
+function keepShimmer() {
+  for (const animation of document.getAnimations()) {
+    const effect = animation.effect;
+    if (!effect || !("target" in effect)) continue;
+    const target = effect.target;
+    if (target instanceof Element && target.closest(".hogoshi-social")) animation.play();
+  }
+}
+
 export function Socials() {
+  useEffect(() => {
+    const root = document.documentElement;
+    const observer = new MutationObserver(() => {
+      if (root.hasAttribute("data-theme-switching")) keepShimmer();
+    });
+    observer.observe(root, { attributes: true, attributeFilter: ["data-theme-switching"] });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="hogoshi-socials fixed bottom-[max(0.75rem,var(--safe-bottom))] left-1/2 z-[var(--z-sticky)] flex -translate-x-1/2 items-center gap-2.5">
       {links.map((link) => (
@@ -23,7 +42,12 @@ export function Socials() {
               link.href ? (
                 <a href={link.href} target="_blank" rel="noreferrer" />
               ) : (
-                <button type="button" onClick={() => void navigator.clipboard.writeText(link.copy ?? "")} />
+                <button
+                  type="button"
+                  onClick={() => {
+                    void navigator.clipboard.writeText(link.copy ?? "").then(() => toast.success("Copied"));
+                  }}
+                />
               )
             }
             aria-label={link.name}
