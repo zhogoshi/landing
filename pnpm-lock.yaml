@@ -12,8 +12,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2
       '@hogoshi/ui':
-        specifier: ^0.1.6
-        version: 0.1.6(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react-is@19.3.0)(react@19.3.0)(redux@5.0.1)
+        specifier: ^0.1.7
+        version: 0.1.7(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react-is@19.3.0)(react@19.3.0)(redux@5.0.1)
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.9.1(@standard-schema/spec@1.1.0)(class-validator@0.14.3)(react-hook-form@7.89.0(@types/react@19.3.0)(react@19.3.0))(zod@4.6.5)
@@ -219,8 +219,8 @@ packages:
   '@hogoshi/tokens@0.1.2':
     resolution: {integrity: sha512-LM4W41ojR17hD0Sr2NbwuLE0BxKhfWnamA6mmU+n3/j0FpZ93IWH7boFxwKwgcTsCbtHnhALMJyhPO+SugW7gA==}
 
-  '@hogoshi/ui@0.1.6':
-    resolution: {integrity: sha512-gDlNTeyWzwcm1WQy6Th6Y/f5uyqSEtaiq3xBo0uZ2P5afTTxzhnHBHTQaizGJ+h+TkZY78T3EzZoJVGci4iQtQ==}
+  '@hogoshi/ui@0.1.7':
+    resolution: {integrity: sha512-QBzVQYeYLuRUsmNJ0B+32ASO3QyqpvyWcyUgZfZ14mH0V34U8RbZYtN3IS4C5Qj4zXyWkfzR/n0YmzUdLTX//g==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -2871,7 +2871,7 @@ snapshots:
 
   '@hogoshi/tokens@0.1.2': {}
 
-  '@hogoshi/ui@0.1.6(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react-is@19.3.0)(react@19.3.0)(redux@5.0.1)':
+  '@hogoshi/ui@0.1.7(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react-is@19.3.0)(react@19.3.0)(redux@5.0.1)':
     dependencies:
       '@base-ui/react': 1.8.0(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@hogoshi/tokens': 0.1.2
