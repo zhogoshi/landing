@@ -25,6 +25,10 @@ export function Cursor() {
     };
     let frame = 0;
     const loop = () => {
+      if (document.documentElement.hasAttribute("data-theme-switching")) {
+        frame = requestAnimationFrame(loop);
+        return;
+      }
       const grow = document.querySelector("[data-cursor='grow']:hover") ? 1.8 : 1;
       lag.current.x += (mouse.current.x - lag.current.x) * 0.12;
       lag.current.y += (mouse.current.y - lag.current.y) * 0.12;
@@ -33,24 +37,9 @@ export function Cursor() {
       }
       frame = requestAnimationFrame(loop);
     };
-    const pin = () => {
-      const layer = document.querySelector(".hogoshi-theme-layer");
-      if (!layer) return;
-      layer.querySelectorAll(".hogoshi-socials, .hogoshi-cursor-layer").forEach((node) => node.remove());
-      const socials = document.querySelector(".hogoshi-socials");
-      const chrome = document.querySelector(".hogoshi-cursor-layer");
-      if (socials) document.body.appendChild(socials);
-      if (chrome) document.body.appendChild(chrome);
-    };
-    const root = document.documentElement;
-    const observer = new MutationObserver(() => {
-      if (root.hasAttribute("data-theme-switching")) pin();
-    });
-    observer.observe(root, { attributes: true, attributeFilter: ["data-theme-switching"] });
     window.addEventListener("mousemove", move);
     frame = requestAnimationFrame(loop);
     return () => {
-      observer.disconnect();
       document.documentElement.classList.remove("hogoshi-cursor");
       window.removeEventListener("mousemove", move);
       cancelAnimationFrame(frame);
@@ -58,15 +47,15 @@ export function Cursor() {
   }, []);
 
   return (
-    <div className="hogoshi-cursor-layer pointer-events-none fixed inset-0 z-[2147483647]">
+    <>
       <div
         ref={ring}
-        className={`pointer-events-none fixed top-0 left-0 hidden size-6 rounded-full border border-white mix-blend-difference [@media(pointer:fine)]:block ${shown ? "" : "opacity-0"}`}
+        className={`pointer-events-none fixed top-0 left-0 z-[2147483647] hidden size-6 rounded-full border border-white mix-blend-difference [@media(pointer:fine)]:block ${shown ? "" : "opacity-0"}`}
       />
       <div
         ref={dot}
-        className={`pointer-events-none fixed top-0 left-0 hidden size-0.5 rounded-full bg-white mix-blend-difference [@media(pointer:fine)]:block ${shown ? "" : "opacity-0"}`}
+        className={`pointer-events-none fixed top-0 left-0 z-[2147483647] hidden size-0.5 rounded-full bg-white mix-blend-difference [@media(pointer:fine)]:block ${shown ? "" : "opacity-0"}`}
       />
-    </div>
+    </>
   );
 }

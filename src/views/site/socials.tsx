@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { DiscordIcon, GithubIcon, Linkedin01Icon, TelegramIcon, VkIcon } from "@hugeicons-pro/core-solid-rounded";
-import { Icon, Tooltip, TooltipContent, TooltipTrigger, toast, type AppIcon } from "@hogoshi/ui";
+import { Icon, Tooltip, TooltipContent, TooltipTrigger, type AppIcon } from "@hogoshi/ui";
 
 const links: { name: string; tip: string; href?: string; copy?: string; icon?: AppIcon; mark?: "steam" }[] = [
   { name: "Telegram", tip: "Telegram", href: "https://t.me/hogoshi", icon: TelegramIcon },
@@ -15,12 +13,8 @@ const links: { name: string; tip: string; href?: string; copy?: string; icon?: A
 ];
 
 export function Socials() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  return createPortal(
-    <div className="hogoshi-socials pointer-events-auto fixed bottom-[max(0.75rem,var(--safe-bottom))] left-1/2 z-[2147483647] flex -translate-x-1/2 items-center gap-2.5">
+  return (
+    <div className="hogoshi-socials fixed bottom-[max(0.75rem,var(--safe-bottom))] left-1/2 z-[var(--z-sticky)] flex -translate-x-1/2 items-center gap-2.5">
       {links.map((link) => (
         <Tooltip key={link.name}>
           <TooltipTrigger
@@ -29,12 +23,7 @@ export function Socials() {
               link.href ? (
                 <a href={link.href} target="_blank" rel="noreferrer" />
               ) : (
-                <button
-                  type="button"
-                  onClick={() => {
-                    void navigator.clipboard.writeText(link.copy ?? "").then(() => toast.success("Copied"));
-                  }}
-                />
+                <button type="button" onClick={() => void navigator.clipboard.writeText(link.copy ?? "")} />
               )
             }
             aria-label={link.name}
@@ -45,8 +34,7 @@ export function Socials() {
           <TooltipContent side="top">{link.tip}</TooltipContent>
         </Tooltip>
       ))}
-    </div>,
-    document.body,
+    </div>
   );
 }
 
