@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { DiscordIcon, GithubIcon, Linkedin01Icon, TelegramIcon, VkIcon } from "@hugeicons-pro/core-solid-rounded";
 import { Icon, Tooltip, TooltipContent, TooltipTrigger, toast, type AppIcon } from "@hogoshi/ui";
 
@@ -13,27 +14,13 @@ const links: { name: string; tip: string; href?: string; copy?: string; icon?: A
   { name: "VK", tip: "VK", href: "https://vk.com/hogoshi", icon: VkIcon },
 ];
 
-function keepShimmer() {
-  for (const animation of document.getAnimations()) {
-    const effect = animation.effect;
-    if (!effect || !("target" in effect)) continue;
-    const target = effect.target;
-    if (target instanceof Element && target.closest(".hogoshi-social")) animation.play();
-  }
-}
-
 export function Socials() {
-  useEffect(() => {
-    const root = document.documentElement;
-    const observer = new MutationObserver(() => {
-      if (root.hasAttribute("data-theme-switching")) keepShimmer();
-    });
-    observer.observe(root, { attributes: true, attributeFilter: ["data-theme-switching"] });
-    return () => observer.disconnect();
-  }, []);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
-  return (
-    <div className="hogoshi-socials fixed bottom-[max(0.75rem,var(--safe-bottom))] left-1/2 z-[var(--z-sticky)] flex -translate-x-1/2 items-center gap-2.5">
+  return createPortal(
+    <div className="hogoshi-socials pointer-events-auto fixed bottom-[max(0.75rem,var(--safe-bottom))] left-1/2 z-[2147483647] flex -translate-x-1/2 items-center gap-2.5">
       {links.map((link) => (
         <Tooltip key={link.name}>
           <TooltipTrigger
@@ -58,7 +45,8 @@ export function Socials() {
           <TooltipContent side="top">{link.tip}</TooltipContent>
         </Tooltip>
       ))}
-    </div>
+    </div>,
+    document.body,
   );
 }
 
