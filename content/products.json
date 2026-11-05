@@ -1,10 +1,43 @@
 [
   {
+    "id": "template",
+    "name": "Template",
+    "description": "A working dashboard. The example every new app starts from.",
+    "href": "https://template.hogoshi.dev",
+    "repo": "https://github.com/zhogoshi/ts-template",
+    "status": "live"
+  },
+  {
+    "id": "storybook",
+    "name": "Storybook",
+    "description": "The design system. Preview, controls, and a snippet for every component.",
+    "href": "https://storybook.hogoshi.dev",
+    "repo": "https://github.com/zhogoshi/storybook",
+    "status": "live"
+  },
+  {
+    "id": "hrocket",
+    "name": "HRocket",
+    "description": "HH applications. Stats and the sync.",
+    "href": "https://hrocket.hogoshi.dev",
+    "repo": "https://github.com/zhogoshi/hrocket",
+    "status": "live"
+  },
+  {
+    "id": "ui",
+    "name": "UI Kit",
+    "description": "Tokens and components.",
+    "href": "https://www.npmjs.com/package/@hogoshi/ui",
+    "repo": "https://github.com/zhogoshi/ui",
+    "status": "live"
+  },
+  {
     "id": "obfuscator",
     "name": "Obfuscator",
-    "description": "Rewrites DOM, styles, and TypeScript until the source no longer introduces itself.",
-    "href": "https://obfuscator.hogoshi.dev",
+    "description": "Rewrites a Next build.",
+    "href": "https://www.npmjs.com/package/obfuscate-hogoshi",
+    "repo": "https://github.com/zhogoshi/hogoshi-obfuscate",
     "logo": "obfuscator.svg",
-    "status": "soon"
+    "status": "live"
   }
 ]
