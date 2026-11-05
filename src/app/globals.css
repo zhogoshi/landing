@@ -6,13 +6,6 @@ body {
   background: var(--bg);
 }
 
-[data-sonner-toaster] {
-  --offset-bottom: 1.5rem !important;
-  --offset-right: 1.5rem !important;
-  --mobile-offset-bottom: 5rem !important;
-  --mobile-offset-left: 1rem !important;
-  --mobile-offset-right: 1rem !important;
-}
 @source ".";
 @source "../../node_modules/@hogoshi/ui/src";
 
