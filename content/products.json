@@ -16,14 +16,6 @@
     "status": "live"
   },
   {
-    "id": "hrocket",
-    "name": "HRocket",
-    "description": "HH applications. Stats and the sync.",
-    "href": "https://hrocket.hogoshi.dev",
-    "repo": "https://github.com/zhogoshi/hrocket",
-    "status": "live"
-  },
-  {
     "id": "ui",
     "name": "UI Kit",
     "description": "Tokens and components.",

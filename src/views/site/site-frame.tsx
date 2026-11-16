@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CodeIcon, GeometricShapes01Icon, GithubIcon, JobSearchIcon, Layers01Icon, Layout01Icon } from "@hugeicons-pro/core-solid-rounded";
+import { CodeIcon, GeometricShapes01Icon, GithubIcon, Layers01Icon, Layout01Icon } from "@hugeicons-pro/core-solid-rounded";
 import { Icon, Logo, NavbarItem, NavbarMenu, NavbarMenuLink, NavbarMenus, ThemeToggle, Tooltip, TooltipContent, TooltipTrigger, TopBar, type AppIcon } from "@hogoshi/ui";
 import type { ReactNode } from "react";
 import products from "../../../content/products.json";
@@ -11,7 +11,6 @@ import { Cursor } from "./cursor";
 const projectIcons: Record<string, AppIcon> = {
   template: Layout01Icon,
   storybook: GeometricShapes01Icon,
-  hrocket: JobSearchIcon,
   ui: Layers01Icon,
   obfuscator: CodeIcon,
 };
