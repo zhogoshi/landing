@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Hogoshi",
     short_name: "Hogoshi",
-    description: "Vadim Kusov. Software, notes, and products.",
+    description: "Hogoshi - Software Engineer",
     start_url: "/",
     scope: "/",
     display: "standalone",
